@@ -1,5 +1,5 @@
 FROM jenkins
-
+USER root
 EXPOSE 8080
 
 CMD chmod 777 /var/run/docker.sock
