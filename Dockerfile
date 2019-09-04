@@ -13,5 +13,3 @@ CMD apt install -y  nodejs
 CMD apt install -y npm
 
 CMD apt install -y curl
-
-CMD cat var/lib/jenkins/secrets/initialAdminPassword
