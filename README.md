@@ -7,18 +7,13 @@ Also, this Jenkins container allow you to run Docker in a Pipleline stage of a s
 
 Run the container making the host's version of docker available to the Jenkins container
 
-`docker run -d -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker fatjenkins:v1`
-
-Get the container id
-
-`docker ps -a`
+`docker run --name jenkins -d -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker fatjenkins:v1`
 
 Get the initial login ID that you'll need to access Jenkins
 
-`docker exec -it <CONTAINER_ID> cat /var/jenkins_home/secrets/initialAdminPassword`
+`docker exec -it jenkins cat /var/jenkins_home/secrets/initialAdminPassword`
 
-Changes the rights on the `docker.sock` so that the Jenkins container can run `docker`.
-
-`sudo chmod 777 /var/run/docker.sock`
+Confirm `docker` command works from inside the jenkins container
+`docker exec -it jenkins docker ps`
 
 Go to your browser and spin the Jenkins site up at `localhost:8080`.
