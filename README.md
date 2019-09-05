@@ -1,6 +1,6 @@
 # FatJenkins
 
-A fat version of the Jenkins container that includes often used utilities such as node, npm, curl, etc
+A fat version of the Jenkins container that includes often used utilities and programs such as node, npm, curl, etc
 
 `docker build -f fatjenkins:v1 .`
 
