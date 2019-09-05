@@ -19,6 +19,6 @@ Get the initial login ID that you'll need to access Jenkins
 
 Changes the rights on the `docker.sock` so that the Jenkins container can run `docker`.
 
-`chmod 777 /var/run/docker.sock`
+`sudo chmod 777 /var/run/docker.sock`
 
 Go to your browser and spin the Jenkins site up at `localhost:8080`.
