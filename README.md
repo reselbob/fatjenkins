@@ -14,6 +14,7 @@ Get the initial login ID that you'll need to access Jenkins
 `docker exec -it jenkins cat /var/jenkins_home/secrets/initialAdminPassword`
 
 Confirm `docker` command works from inside the jenkins container
+
 `docker exec -it jenkins docker ps`
 
 Go to your browser and spin the Jenkins site up at `localhost:8080`.
