@@ -3,7 +3,7 @@
 A fat version of the Jenkins container that includes often used utilities and programs such as node, npm, curl, etc.
 Also, this Jenkins container allow you to run Docker in a Pipleline stage of a shell exec task.
 
-`docker build -f fatjenkins:v1 .`
+`docker build -t fatjenkins:v1 .`
 
 Run the container making the host's version of docker available to the Jenkins container
 
