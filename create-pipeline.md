@@ -77,7 +77,12 @@ node {
 
 Then save the job by clicking the `Save` button as shown at callout (2) in the figure above.
 
-Then, start the job (1), view the progress (2) and then watch the outcome (3) as shown in the figure below.
+**Step 6:**  Start the Pipeline job.
+
+You start the Pipeline job by clicking the link, `Build now` as shown at callout (1) on the left side of the figure below.
+ 
+You can view the progress as shown at callout (2) and then watch the outcome as shown at callout (3)
+ in the figure below.
 
 ![run job](images/jenkins-build.jpg)
 
