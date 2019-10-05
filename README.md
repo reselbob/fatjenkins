@@ -3,6 +3,8 @@
 A fat version of the Jenkins container that includes often used utilities and programs such as node, npm, curl, etc.
 Also, this Jenkins container allow you to run Docker in a Pipeline stage of a shell exec task.
 
+## Installation
+
 **Step 1:** Build the container image locally.
 
 `docker build -t fatjenkins:v1 .`
@@ -22,3 +24,8 @@ Also, this Jenkins container allow you to run Docker in a Pipeline stage of a sh
 **Step 5:** Go to your browser and spin the Jenkins site up at `localhost:8080`.
 
 The first time you go the site you'll be asked to entery the login ID you generated above in Step 3.
+
+## Usage
+
+Once you get Fat Jenkins up and running as Docker container, you can learn how to create a
+pipeline in the tutorial found, [here](create-pipeline.md).
