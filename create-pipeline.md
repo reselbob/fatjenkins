@@ -3,12 +3,35 @@
 The purpose of this exercise is to demonstrate how to implement a CI/CD
 pipeline under Fat Jenkins that gets, tests and deploys code.
 
-`https://katacoda.com/courses/ubuntu/playground`
+This document assumes that you have followed the steps for getting FatJenkins up and running as
+described in this page [here](README.md).
+ 
+In this exercise we're going create Jenkins Pipeline job that:
 
-`git clone https://github.com/reselbob/fatjenkins.git`
+* gets the code for the microservice, `Wise Sayings` from the repository, [https://github.com/reselbob/wisesaying](https://github.com/reselbob/wisesaying)
+* builds a Docker container image from source code
+* runs a Docker container from the Docker image that Jenkins built
+* exercises the Wise Saying web server running in the container.
 
-`cd fatjenkins`
+**Step 1:** Create a job by clicking on the `create new job` link as shown in the figure below.
 
+![create job](images/create-job.png)
+
+**Step 2:** Enter the job name, in this case `Wise Sayings`. Then select `Pipeline` from the types of jobs lists. 
+Finally, click the OK, button on the lower left of the web page, as shown in the figure below.
+
+![project name](images/enter-project-name.png)
+
+**Step 3:** You'll be taken to the job configuration page. Enter a short `Description` about the job as 
+shown in the figure below.
+
+![enter description](images/jenkins-description.png)
+
+**Step :** Select the `Poll SCM` option in the `Build Triggers` section as shown in the figure below.
+
+![set scm polling](images/poll-scm.png)
+
+Enter the following script in the section, `Pipeline` as shown at the callout (1) in the figure that follows the code.
 
 ```
 node {
@@ -44,3 +67,22 @@ node {
     }
 }
 ```
+
+![enter script](images/jenkins-script.jpg)
+
+Then save the job by clicking the `Save` button as shown at callout (2) in the figure above.
+
+Then, start the job (1), view the progress (2) and then watch the outcome (3) as shown in the figure below.
+
+![run job](images/jenkins-build.jpg)
+
+## Review
+
+In this lesson you've created a Jenkins Pipeline job that:
+
+* gets the code for the microservice, `Wise Sayings` from the repository, [https://github.com/reselbob/wisesaying](https://github.com/reselbob/wisesaying)
+* builds a Docker container image from source code
+* runs a Docker container from the Docker image that Jenkins built
+* exercises the Wise Saying web server running in the container.
+
+**EXERCISE COMPLETE**

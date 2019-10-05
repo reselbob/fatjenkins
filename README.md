@@ -45,8 +45,7 @@ You'll output that is similar to, but not exactly the following:
 **Step 5:** Go to your browser and spin the Jenkins site up at `localhost:8080`.
 
 The first time you go the site you'll be asked to enter the login ID you generated above in Step 3.
-
-**Step 6:** Follow the following setup steps described in the Jenkins Web page
+Then you'll need to create some login credentials.
 
 ## Usage
 
