@@ -12,15 +12,6 @@ pipeline under Fat Jenkins that gets, tests and deploys code.
 
 ```
 node {
-    stage("stop all existing containers"){
-        sh 'docker stop mywisesayings'
-    }
-    stage("nuke all existing containers"){
-        sh 'docker rm mywisesayings'
-    }
-    stage("nuke the image"){
-        sh 'docker rmi -f wisesayings'
-    }
     stage("Get code from GitHub"){
         git branch: 'dev', url: 'https://github.com/reselbob/wisesayings'
     }
@@ -37,10 +28,19 @@ node {
         sh 'docker build -t wisesayings ${WORKSPACE}/app'
     }
     stage("run the container"){
-        sh 'docker run -d --name mywisesayings -p 3000:3000 wisesayings'
+        sh 'docker run -d --name mywisesayings -p 3001:3000 wisesayings'
     }
-    stage("call the website using curl"){
-        sh 'curl localhost:3000'
+    stage("call the container's intenal website using wget"){
+        sh 'docker exec -i mywisesayings wget -qO- localhost:3000'
+    }
+    stage("stop container"){
+        sh 'docker stop mywisesayings'
+    }
+    stage("nuke wisesayings"){
+        sh 'docker rm mywisesayings'
+    }
+    stage("nuke the image"){
+        sh 'docker rmi -f wisesayings'
     }
 }
 ```
