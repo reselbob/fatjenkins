@@ -17,7 +17,7 @@ In this exercise we're going create Jenkins Pipeline job that:
 
 ![create job](images/create-job.png)
 
-**Step 2:** Enter the job name, in this case `Wise Sayings`. Then select `Pipeline` from the types of jobs lists. 
+**Step 2:** Enter the job name, in this case `wisesayings`. Then select `Pipeline` from the types of jobs lists. 
 Finally, click the OK, button on the lower left of the web page, as shown in the figure below.
 
 ![project name](images/enter-project-name.png)
