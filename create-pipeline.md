@@ -8,7 +8,7 @@ described in this page [here](README.md).
  
 In this exercise we're going create Jenkins Pipeline job that:
 
-* gets the code for the microservice, `Wise Sayings` from the repository, [https://github.com/reselbob/wisesaying](https://github.com/reselbob/wisesaying)
+* gets the code for the microservice, `wisesayings` from the repository, [https://github.com/reselbob/wisesaying](https://github.com/reselbob/wisesaying)
 * builds a Docker container image from source code
 * runs a Docker container from the Docker image that Jenkins built
 * exercises the Wise Saying web server running in the container.
