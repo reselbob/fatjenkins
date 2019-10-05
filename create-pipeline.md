@@ -13,12 +13,14 @@ pipeline under Fat Jenkins that gets, tests and deploys code.
 ```
 node {
     stage("stop all existing containers"){
-        sh 'docker stop $(docker ps -a -q)'
+        sh 'docker stop mywisesayings'
     }
     stage("nuke all existing containers"){
-        sh 'docker rm $(docker ps -a -q)'
+        sh 'docker rm mywisesayings'
     }
-
+    stage("nuke the image"){
+        sh 'docker rmi -f wisesayings'
+    }
     stage("Get code from GitHub"){
         git branch: 'dev', url: 'https://github.com/reselbob/wisesayings'
     }
