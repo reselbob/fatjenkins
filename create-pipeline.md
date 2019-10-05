@@ -27,9 +27,14 @@ shown in the figure below.
 
 ![enter description](images/jenkins-description.png)
 
-**Step :** Select the `Poll SCM` option in the `Build Triggers` section as shown in the figure below.
+**Step 4:** Select the `Poll SCM` option in the `Build Triggers` section. Then enter a polling
+ interval, for example `H/10 * * * *` as shown in the figure below.
 
 ![set scm polling](images/poll-scm.png)
+
+The interval statement,`H/10 * * * *` indicates that the GitHub repo will be polled every 10 minutes.
+
+**Step 5:** Create the Pipeline script.
 
 Enter the following script in the section, `Pipeline` as shown at the callout (1) in the figure that follows the code.
 
