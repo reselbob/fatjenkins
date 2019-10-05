@@ -3,6 +3,23 @@
 A fat version of the Jenkins container that includes often used utilities and programs such as node, npm, curl, etc.
 Also, this Jenkins container allow you to run Docker in a Pipeline stage of a shell exec task.
 
+## Pre-installation
+
+If you want to run this under Katcoda, take the following steps:
+
+**Step 1:** Go to the Ubuntu playground in Katacoda
+
+`https://katacoda.com/courses/ubuntu/playground`
+
+**Step 2:** Clone the repository code
+
+`git clone https://github.com/reselbob/fatjenkins.git`
+
+**Step 3:** Go to the project's directory
+
+`cd fatjenkins`
+
+
 ## Installation
 
 **Step 1:** Build the container image locally.
@@ -17,13 +34,19 @@ Also, this Jenkins container allow you to run Docker in a Pipeline stage of a sh
 
 `docker exec -it jenkins cat /var/jenkins_home/secrets/initialAdminPassword`
 
+You'll output that is similar to, but not exactly the following:
+
+`4b36a89b91a24c51a5d4042433c013e2`
+
 **Step 4:** Confirm the `docker` command works from inside the Jenkins container
 
 `docker exec -it jenkins docker ps`
 
 **Step 5:** Go to your browser and spin the Jenkins site up at `localhost:8080`.
 
-The first time you go the site you'll be asked to entery the login ID you generated above in Step 3.
+The first time you go the site you'll be asked to enter the login ID you generated above in Step 3.
+
+**Step 6:** Follow the following setup steps described in the Jenkins Web page
 
 ## Usage
 
