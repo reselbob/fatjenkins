@@ -7,5 +7,6 @@ RUN curl --silent --location https://deb.nodesource.com/setup_10.x | bash - \
        apt-utils \
        libltdl7 \
        npm \
+       dnsutils \
     && rm -rf /var/lib/apt/lists/*
 
