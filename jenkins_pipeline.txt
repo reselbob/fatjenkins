@@ -1,0 +1,42 @@
+node {
+    stage("Get code from GitHub"){
+        git branch: 'dev', url: 'https://github.com/reselbob/pinger'
+    }
+    stage("Discovering workspace"){
+        sh 'echo ${WORKSPACE}/app'
+    }
+    stage("Build container image"){
+        sh 'docker build -t pinger app'
+    }
+    stage("Tag container image"){
+        sh 'docker tag pinger 192.168.86.33:5000/pinger:dev.0.${BUILD_NUMBER}'
+    }
+    stage('login to private repo'){
+        sh 'docker login -u jenkins -p jenkins 192.168.86.33:5000'
+    }
+    stage('Push to repo'){
+        sh 'docker push 192.168.86.33:5000/pinger:dev.0.${BUILD_NUMBER}'
+    }
+    stage("Remove the image locally"){
+        sh 'docker rmi 192.168.86.33:5000/pinger:dev.0.${BUILD_NUMBER}'
+    }
+    stage("Run the image locally as a container"){
+        sh 'docker run -d -p 3000:3000 --name pinger${BUILD_NUMBER} 192.168.86.33:5000/pinger:dev.0.${BUILD_NUMBER}'
+    }
+    stage("Build the code test dependencies for the docker test and run"){
+        dir("${env.WORKSPACE}/app"){
+            sh "npm install --only=dev"
+            sh 'npm run docker'
+        }
+    }
+    stage("Delete the local container"){
+        sh 'docker rm -f pinger${BUILD_NUMBER}'
+    }
+    stage("Delete the local images left behind"){
+        sh 'docker rmi 192.168.86.33:5000/pinger:dev.0.${BUILD_NUMBER}'
+        sh 'docker rmi pinger:latest'
+    }
+    stage("List out the running docker images for log purposes"){
+        sh 'docker images'
+    }
+}
