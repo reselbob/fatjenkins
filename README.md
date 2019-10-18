@@ -50,4 +50,4 @@ Then you'll need to create some login credentials.
 ## Usage
 
 Once you get Fat Jenkins up and running as a Docker container, go to instructions found [here](create-pipeline.md)
- to learn howt to create a Jenkins Pipeline job.
+ to learn how to create a Jenkins Pipeline job.
