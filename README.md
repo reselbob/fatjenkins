@@ -5,7 +5,7 @@ Also, this Jenkins container allow you to run Docker in a Pipeline stage of a sh
 
 ## Pre-installation
 
-We'll fun this project under [Katacoda](katacoda.com).
+We'll run this project under [Katacoda](katacoda.com).
 
 **Step 1:** Go to the Ubuntu playground in Katacoda
 
