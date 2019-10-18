@@ -47,7 +47,5 @@ You'll output that is similar to, but not exactly the following:
 The first time you go the site you'll be asked to enter the login ID you generated above in Step 3.
 Then you'll need to create some login credentials.
 
-## Usage
-
-Once you get Fat Jenkins up and running as a Docker container, go to instructions found [here](create-pipeline.md)
+**Step 6:** Once you get Fat Jenkins up and running as a Docker container, go to instructions found [here](create-pipeline.md)
  to learn how to create a Jenkins Pipeline job.
