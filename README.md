@@ -28,6 +28,25 @@ We'll run this project under [Katacoda](katacoda.com).
 
 **Step 2:** Create the container based on the local Docker image, making the host's version of docker available to the Jenkins container
 
+```
+docker run \
+  --name myfatjenkins \
+  --rm \
+  --detach \
+  --network jenkins \
+  --env DOCKER_HOST=tcp://docker:2376 \
+  --env DOCKER_CERT_PATH=/certs/client \
+  --env DOCKER_TLS_VERIFY=1 \
+  --publish 8080:8080 \
+  --publish 50000:50000 \
+  --volume jenkins-data:/var/jenkins_home \
+  --volume jenkins-docker-certs:/certs/client:ro \
+  --volume "$HOME":/home \
+  fatjenkins
+
+```
+
+
 `docker run --name jenkins -d -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker fatjenkins:v1`
 
 **Step 3:** Get the initial login ID that you'll need to access Jenkins
