@@ -1,12 +1,10 @@
-FROM jenkins/jenkins
+FROM jenkins/jenkins:2.263.4-lts-jdk11
 USER root
-EXPOSE 8080
+RUN apt-get update && apt-get install -y apt-utils
 
-RUN curl --silent --location https://deb.nodesource.com/setup_10.x | bash - \
-    && apt-get update && apt-get install -y \ 
-       apt-utils \
-       libltdl7 \
-       npm \
-       dnsutils \
-    && rm -rf /var/lib/apt/lists/*
+ENV JAVA_OPTS -Djenkins.install.runSetupWizard=false
+COPY plugins.txt /usr/share/jenkins/ref/plugins.txt
+COPY jenkins.yaml /usr/share/jenkins/jenkins.yaml
+ENV CASC_JENKINS_CONFIG=/usr/share/jenkins/jenkins.yaml
 
+RUN /usr/local/bin/install-plugins.sh < /usr/share/jenkins/ref/plugins.txt
